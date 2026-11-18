@@ -17,42 +17,44 @@ The project focuses on understanding how linear regression works internally, rat
 
 
 
+
 ## Mathematical Foundations
 
-For a dataset containing \(N\) training examples and \(D\) features, linear regression predicts the target using:
+### 1. Linear Regression Model
 
-\[
-\hat{y} = w_0 + w_1x_1 + \cdots + w_Dx_D
-\]
+The hypothesis function is:
 
-Where:
-- \(w_0\) is the intercept.
-- \(w_1, \ldots, w_D\) are the feature coefficients.
-- \(\hat{y}\) is the predicted value.
+$$
+\hat{y} = w_0 + w_1x
+$$
 
-### Cost Function
+For multiple features:
 
-The model uses the Mean Squared Error-based cost function:
+$$
+\hat{y} = w_0 + w_1x_1 + \cdots + w_nx_n
+$$
 
-\[
+### 2. Cost Function
+
+We use the Mean Squared Error cost function with a factor of 1/2:
+
+$$
 J(w) = \frac{1}{2N}\sum_{i=1}^{N}(\hat{y}^{(i)}-y^{(i)})^2
-\]
+$$
 
-The objective is to find the weights that minimize this cost.
+### 3. Gradient Descent
 
-### Gradient Descent
+The parameters are updated iteratively:
 
-Gradient descent iteratively updates the weights in the direction that reduces the cost:
-
-\[
+$$
 w_j := w_j - \alpha \frac{\partial J(w)}{\partial w_j}
-\]
+$$
 
 Where:
-- \(\alpha\) is the learning rate.
-- \(\frac{\partial J(w)}{\partial w_j}\) is the partial derivative of the cost with respect to weight \(w_j\).
+- $w_j$ is a model parameter.
+- $\alpha$ is the learning rate.
+- $\frac{\partial J(w)}{\partial w_j}$ is the partial derivative of the cost function.
 
-The implementation uses NumPy matrix operations to calculate predictions, the cost, and gradients efficiently.
 
 
 
@@ -117,14 +119,24 @@ The experiment includes:
 - Evaluation using MSE and R².
 - Comparison with Scikit-learn's `LinearRegression`.
 
-#### Results
+
+### Results
+
+The custom implementation was evaluated against Scikit-learn's Linear Regression using the same training and test sets.
 
 | Metric | From Scratch | Scikit-learn |
 |---|---:|---:|
 | Test MSE | 2900.1299 | 2900.1936 |
 | Test R² | 0.452615 | 0.452603 |
 
-The results show that the custom implementation produces predictions very close to Scikit-learn's implementation.
+Both implementations produce nearly identical results, validating the correctness of the gradient descent implementation.
+
+
+## Visualization
+
+The following plot shows the learned regression line compared with the training data.
+
+![Linear Regression](images/linear-regression.png)
 
 
 

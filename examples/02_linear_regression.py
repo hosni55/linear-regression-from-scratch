@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 from src.gradient_descent import gradient_descent
 
 
@@ -25,4 +25,6 @@ if __name__ == "__main__":
     plt.ylabel("y")
     plt.legend()
     plt.grid()
+    output_path = Path(__file__).resolve().parents[1] / "images" / "linear-regression.png"
+    plt.savefig(output_path, dpi=300, bbox_inches="tight")
     plt.show()
