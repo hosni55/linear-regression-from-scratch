@@ -1,5 +1,4 @@
 
-
 # Linear Regression from Scratch
 
 A Python implementation of **Linear Regression from scratch using NumPy**, exploring the mathematical foundations and optimization process behind one of the fundamental machine learning algorithms.
@@ -15,14 +14,11 @@ The project focuses on understanding how linear regression works internally, rat
 - Apply the model to synthetic and real-world datasets.
 - Evaluate the implementation against Scikit-learn.
 
-
-
-
 ## Mathematical Foundations
 
 ### 1. Linear Regression Model
 
-The hypothesis function is:
+The hypothesis function for a single feature is:
 
 $$
 \hat{y} = w_0 + w_1x
@@ -51,12 +47,10 @@ w_j := w_j - \alpha \frac{\partial J(w)}{\partial w_j}
 $$
 
 Where:
+
 - $w_j$ is a model parameter.
 - $\alpha$ is the learning rate.
 - $\frac{\partial J(w)}{\partial w_j}$ is the partial derivative of the cost function.
-
-
-
 
 ## Project Structure
 
@@ -64,6 +58,10 @@ Where:
 linear-regression-from-scratch/
 │
 ├── data/
+│   └── .gitkeep
+│
+├── images/
+│   └── linear-regression.png
 │
 ├── src/
 │   ├── __init__.py
@@ -77,7 +75,10 @@ linear-regression-from-scratch/
 │   ├── 02_linear_regression.py
 │   └── 03_diabetes_dataset.py
 │
+├── .gitignore
+├── LICENSE
 ├── main.py
+├── README.md
 └── requirements.txt
 ```
 
@@ -88,10 +89,10 @@ linear-regression-from-scratch/
 - **`gradient_descent.py`**: Implements the optimization algorithm.
 - **`visualization.py`**: Plots training data and regression predictions.
 - **`examples/`**: Contains experiments using brute-force search, synthetic data, and the diabetes dataset.
+- **`data/`**: Reserved for local datasets. Private datasets are not included in the repository.
+- **`images/`**: Contains project visualizations.
 - **`main.py`**: Runs the basic project pipeline.
 - **`requirements.txt`**: Lists the project dependencies.
-
-
 
 ## Experiments
 
@@ -113,12 +114,12 @@ Implements linear regression from scratch using NumPy.
 Applies the implementation to Scikit-learn's diabetes dataset.
 
 The experiment includes:
+
 - Training and testing split (80/20).
 - Feature standardization using `StandardScaler`.
 - Training with the custom gradient descent implementation.
 - Evaluation using MSE and R².
 - Comparison with Scikit-learn's `LinearRegression`.
-
 
 ### Results
 
@@ -129,16 +130,13 @@ The custom implementation was evaluated against Scikit-learn's Linear Regression
 | Test MSE | 2900.1299 | 2900.1936 |
 | Test R² | 0.452615 | 0.452603 |
 
-Both implementations produce nearly identical results, validating the correctness of the gradient descent implementation.
-
+Both implementations produce nearly identical results, providing a numerical validation of the custom gradient descent implementation.
 
 ## Visualization
 
 The following plot shows the learned regression line compared with the training data.
 
 ![Linear Regression](images/linear-regression.png)
-
-
 
 ## Installation
 
@@ -182,4 +180,3 @@ python main.py
 - NumPy
 - Matplotlib
 - Scikit-learn
-
